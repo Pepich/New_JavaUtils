@@ -136,10 +136,11 @@ public class Saylol implements Module
 			return true;
 		}
 		long time = System.currentTimeMillis();
-		if (time - lastLol < 15000)
+		int timeout = 15000;
+		if (time - lastLol < timeout)
 		{
 			Utils.sendErrorMessage(sender, null,
-					"You can't use saylol for another " + (14 - (int) Math.ceil((time - lastLol) / 1000)) + "s.");
+					"You can't use saylol for another " + (timeout - (time - lastLol)) / 1000 + "s.");
 			return true;
 		}
 		String name;
